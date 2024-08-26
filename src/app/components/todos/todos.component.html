@@ -1,0 +1,19 @@
+<h2>Todo List</h2>
+ 
+<form (ngSubmit)="addTodo()">
+  <label for="title">Title</label>
+  <input id="title" [(ngModel)]="title" name="title" required />
+ 
+  <label for="description">Description</label>
+  <input id="description" [(ngModel)]="description" name="description" required />
+ 
+  <button type="submit">Add Todo</button>
+</form>
+ 
+<ul class="todo-list">
+  <li *ngFor="let todo of todos">
+    <strong>{{ todo.title }}</strong>: {{ todo.description }}
+    <button (click)="updateTodo(todo.id)">Edit</button>
+    <button (click)="deleteTodo(todo.id)">Delete</button>
+  </li>
+</ul>
